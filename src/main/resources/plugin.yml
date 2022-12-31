@@ -1,0 +1,6 @@
+name: SpigotPluginStudy
+version: '${version}'
+main: io.github.hibixby.spigotpluginstudy.SpigotPluginStudy
+api-version: 1.19
+authors: [ Hey_Siri_ ]
+description: Spigot plugin study
