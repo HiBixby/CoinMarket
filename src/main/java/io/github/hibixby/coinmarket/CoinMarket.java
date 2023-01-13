@@ -9,6 +9,8 @@ public final class CoinMarket extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getLogger().info("플러그인 로딩됨.");
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
         getCommand("price").setExecutor(new PriceCommand());
     }
 

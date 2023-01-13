@@ -5,6 +5,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import java.math.BigDecimal;
+
 public class PriceCommand implements CommandExecutor {
 
 
@@ -27,7 +29,7 @@ public class PriceCommand implements CommandExecutor {
                 sender.sendMessage("코인 아이디를 입력해 주세요.");
             } else {
                 try{
-                    double price = Tickers.getPrice(args[0]);
+                    BigDecimal price = Tickers.getPrice(args[0]);
                     sender.sendMessage(args[0] + "의 가격 : " + String.format("%1$,.2f", price));
                 }catch (RuntimeException e){
                     sender.sendMessage(e.getMessage());
