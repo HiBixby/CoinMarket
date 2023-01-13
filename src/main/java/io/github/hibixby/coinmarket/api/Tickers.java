@@ -1,4 +1,4 @@
-package io.github.hibixby.spigotpluginstudy.api;
+package io.github.hibixby.coinmarket.api;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -22,12 +22,10 @@ public class Tickers {
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(response.body());
         JsonObject jsonObject = JsonParser.parseString(response.body()).getAsJsonObject();
-        if(response.statusCode()==200) {
+        if (response.statusCode() == 200) {
             price = jsonObject.get("quotes").getAsJsonObject().get("KRW").getAsJsonObject().get("price").getAsDouble();
-        }
-        else{
+        } else {
             throw new RuntimeException(jsonObject.get("error").getAsString());
         }
         return price;

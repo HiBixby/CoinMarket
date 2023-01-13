@@ -1,6 +1,6 @@
-package io.github.hibixby.spigotpluginstudy.commands;
+package io.github.hibixby.coinmarket.commands;
 
-import io.github.hibixby.spigotpluginstudy.api.Tickers;
+import io.github.hibixby.coinmarket.api.Tickers;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -22,13 +22,16 @@ public class PriceCommand implements CommandExecutor {
      */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (command.getName().equalsIgnoreCase("price")) {
+        if (command.getName().equalsIgnoreCase("coinprice")) {
             if (args.length == 0) {
                 sender.sendMessage("코인 아이디를 입력해 주세요.");
             } else {
-                double price;
-                price = Tickers.getPrice(args[0]);
-                sender.sendMessage(args[0] + "의 가격 : ", String.format("%1$,.2f",price));
+                try{
+                    double price = Tickers.getPrice(args[0]);
+                    sender.sendMessage(args[0] + "의 가격 : " + String.format("%1$,.2f", price));
+                }catch (RuntimeException e){
+                    sender.sendMessage(e.getMessage());
+                }
             }
         }
         return true;
