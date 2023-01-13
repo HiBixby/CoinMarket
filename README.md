@@ -1,5 +1,3 @@
-# SpigotPluginStudy
-
 # Coin Market
 
 ### 목표
