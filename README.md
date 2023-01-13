@@ -1,4 +1,4 @@
-# Coin Market
+# 🪙Coin Market
 
 ### 목표
 가상화폐를 거래하는 마인크래프트 플러그인 만들기
