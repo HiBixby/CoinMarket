@@ -1,11 +1,11 @@
-name: SpigotPluginStudy
+name: CoinMarket
 version: '${version}'
-main: io.github.hibixby.spigotpluginstudy.SpigotPluginStudy
+main: io.github.hibixby.coinmarket.CoinMarket
 api-version: 1.19
 authors: [ Hey_Siri_ ]
-description: Spigot plugin study
+description: trading cryptocurrency
 commands:
-  price:
+  coinprice:
     description: get price of coin
-    aliases: [cp,coinprice]
+    aliases: [cp,price]
     usage: /<command>

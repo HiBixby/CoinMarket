@@ -1,11 +1,9 @@
-package io.github.hibixby.spigotpluginstudy;
+package io.github.hibixby.coinmarket;
 
-import io.github.hibixby.spigotpluginstudy.commands.PriceCommand;
+import io.github.hibixby.coinmarket.commands.PriceCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.logging.Logger;
-
-public final class SpigotPluginStudy extends JavaPlugin {
+public final class CoinMarket extends JavaPlugin {
 
     @Override
     public void onEnable() {
