@@ -25,16 +25,15 @@ public class PriceCommand implements CommandExecutor {
      */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (command.getName().equalsIgnoreCase("coinprice")) {
-            if (args.length == 0) {
-                sender.sendMessage(ChatColor.DARK_RED + "코인 아이디를 입력해 주세요.");
-            } else {
-                try {
-                    BigDecimal price = Tickers.getPrice(args[0]);
-                    sender.sendMessage(ChatColor.GOLD + args[0] + "의 가격 : " + String.format("%1$,.2f", price));
-                } catch (RuntimeException e) {
-                    sender.sendMessage(ChatColor.DARK_RED + e.getMessage());
-                }
+        if (args.length == 0) {
+            sender.sendMessage(ChatColor.DARK_RED + "코인 아이디를 입력해 주세요.");
+            return false;
+        } else {
+            try {
+                BigDecimal price = Tickers.getPrice(args[0]);
+                sender.sendMessage(ChatColor.GOLD + args[0] + "의 가격 : " + String.format("%1$,.2f", price));
+            } catch (RuntimeException e) {
+                sender.sendMessage(ChatColor.DARK_RED + e.getMessage());
             }
         }
         return true;
