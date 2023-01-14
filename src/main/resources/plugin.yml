@@ -9,3 +9,7 @@ commands:
     description: get price of coin
     aliases: [cp,cprice,price]
     usage: /<command>
+  coinbuy:
+    description: buy coin
+    aliases: [cb,cbuy,buy]
+    usage: /<command> <coin_id> <amount>
