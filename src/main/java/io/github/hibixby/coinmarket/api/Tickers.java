@@ -20,14 +20,7 @@ public class Tickers {
     public static BigDecimal getPrice(String coin_id) {
         BigDecimal price = BigDecimal.valueOf(-1);
         URI uri = URI.create("https://api.coinpaprika.com/v1/tickers/" + coin_id + "?quotes=" + currency);
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder(uri).GET().build();
-        HttpResponse<String> response = null;
-        try {
-            response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        } catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        HttpResponse<String> response = CoinpaprikaAPI.GET(uri);
         JsonObject jsonObject = JsonParser.parseString(response.body()).getAsJsonObject();
         if (response.statusCode() == 200) {
             price = jsonObject.get("quotes").getAsJsonObject().get(currency).getAsJsonObject().get("price").getAsBigDecimal();
