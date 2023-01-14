@@ -7,5 +7,5 @@ description: trading cryptocurrency
 commands:
   coinprice:
     description: get price of coin
-    aliases: [cp,price]
+    aliases: [cp,cprice,price]
     usage: /<command>
